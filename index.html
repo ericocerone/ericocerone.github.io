@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
     <!-- <script src="./bootstrap/bootstrap.min.js"></script> -->
+
     <title>Minha Pesquisa</title>
 	
     
@@ -25,8 +26,8 @@
         <h2 class="text-center">(com JavaScript & HTML Canvas 2D)</h2>
         
         <hr>
-        <h3 class="text-center">Autor: Erico Vinicius dos Santos Cerone</h3>
-        <h3 class="text-center">Orientador: Prof. Dr. Guilherme Augusto Pianezzer</h3>
+        <h4 class="text-center">Autor: Erico Vinicius dos Santos Cerone</h4>
+        <h4 class="text-center">Orientador: Prof. Dr. Guilherme Augusto Pianezzer</h4>
         <hr>
     </div>
     <!-- 
@@ -378,6 +379,7 @@ desenharQuadradoIsometrico()</code></pre>
             <p>
                 Nesta seção, vamos explorar a criação de um círculo que gira em torno de seu centro. Utilizando transformações matemáticas e a função de rotação, podemos animar o círculo para que ele gire continuamente, proporcionando uma experiência visual dinâmica. A seguir, apresentaremos o código necessário para implementar essa animação, juntamente com explicações detalhadas sobre cada parte do processo.
             </p>
+            <div class="text-center" id="minha-equacao-2"></div>
         </div>
     </div>
 
@@ -770,13 +772,34 @@ desenharEsferaCompletaEstatica();</code></pre>
 <script>
     // Aguarda o carregamento do HTML e dos scripts com 'defer'
     document.addEventListener("DOMContentLoaded", function() {
-      // Captura o elemento criado acima
-      const elemento = document.getElementById("minha-equacao");
-      
-      // Chama a função passando a string da equação e o elemento do DOM
-      katex.render("c = \\pm\\sqrt{a^2 + b^2}", elemento, {
-        throwOnError: false
-      });
+        // Captura o elemento criado acima
+        const elemento1 = document.getElementById("minha-equacao");
+        const elemento2 = document.getElementById("minha-equacao-2");
+
+        const equacoes1 = `\\begin{aligned}
+            \\\\
+            X_{iso} &= X_{2D} - Y_{2D} \\\\
+            \\\\
+            Y_{iso} &= \\frac{X_{2D} + Y_{2D}}{2} - Z
+        \\end{aligned}`;
+
+        const equacoes2 = `\\begin{aligned}
+            \\\\
+            X_{rot} &= X \\cdot cos(\\theta) - Y \\cdot sin(\\theta) \\\\
+            Y_{rot} &= X \\cdot sin(\\theta) + Y \\cdot cos(\\theta) \\\\
+            \\\\
+        \\end{aligned}`;
+
+        // Chama a função passando a string da equação e o elemento do DOM
+        katex.render(equacoes1, elemento1, {
+            throwOnError: false,
+            displayMode: true
+        });
+
+        katex.render(equacoes2, elemento2, {
+            throwOnError: false,
+            displayMode: true
+        });
     });
 </script>
 
